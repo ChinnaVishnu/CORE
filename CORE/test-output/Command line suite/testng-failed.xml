@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Command line suite]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="com.jocata.core.RunStar.ActivityGraphExportExcel">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.RunStar.ActivityGraphExportExcel -->
+      <class name="com.jocata.core.scripts.SimpleSearchJocata2">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.scripts.SimpleSearchJocata2 -->
+      <class name="com.jocata.core.grid.UserPermissionsReport">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.grid.UserPermissionsReport -->
+      <class name="com.jocata.core.scripts.NewCreateRuleJocata">
+        <methods>
+          <include name="setUp"/>
+          <include name="endReport"/>
+          <include name="fristlogin"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.scripts.NewCreateRuleJocata -->
+      <class name="com.jocata.core.misreports.EventdetailsReport">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.misreports.EventdetailsReport -->
+      <class name="com.jocata.core.scripts.customerfields">
+        <methods>
+          <include name="setUp"/>
+          <include name="checkcustomerfields"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.scripts.customerfields -->
+      <class name="com.jocata.core.scripts.CoreNavigation">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.scripts.CoreNavigation -->
+      <class name="com.jocata.core.grid.AuditLogModuleName">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.grid.AuditLogModuleName -->
+      <class name="com.jocata.star.TaskboardSort.RuleBuliderUpdate">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.star.TaskboardSort.RuleBuliderUpdate -->
+      <class name="com.jocata.core.grid.AccountTrunover">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.grid.AccountTrunover -->
+      <class name="com.jocata.core.misreports.AccountSummaryReport">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.misreports.AccountSummaryReport -->
+      <class name="com.jocata.core.screens.ThresholdParametersRule">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.screens.ThresholdParametersRule -->
+      <class name="com.jocata.core.exportexcels.TrancastionRulePopUpExport">
+        <methods>
+          <include name="setUp"/>
+          <include name="login"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.exportexcels.TrancastionRulePopUpExport -->
+      <class name="com.jocata.core.grid.GridAddReport3">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.grid.GridAddReport3 -->
+      <class name="com.jocata.core.grid.ADDRolesModify">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.grid.ADDRolesModify -->
+      <class name="com.jocata.core.existingfuctions.AdvancedAddBenchMark2">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.existingfuctions.AdvancedAddBenchMark2 -->
+      <class name="com.jocata.core.grid.RiskConfigurationEdit">
+        <methods>
+          <include name="setUp"/>
+          <include name="clickriskconfigrationedit"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.grid.RiskConfigurationEdit -->
+      <class name="com.jocata.core.scripts.AdvanceSearchJocataSe2">
+        <methods>
+          <include name="setUp"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.jocata.core.scripts.AdvanceSearchJocataSe2 -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [Command line suite] -->

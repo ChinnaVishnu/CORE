@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[waiting for page to load...]]>
+    </line>
+    <line>
+      <![CDATA[Page is loaded]]>
+    </line>
+    <line>
+      <![CDATA[waiting for page to load...]]>
+    </line>
+    <line>
+      <![CDATA[Page is loaded]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="111643" started-at="2017-12-02T11:47:02Z" finished-at="2017-12-02T11:48:54Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="111643" started-at="2017-12-02T11:47:02Z" finished-at="2017-12-02T11:48:54Z">
+      <class name="com.jocata.core.existingfuctions.AdvancedAddBenchMark2">
+        <test-method status="PASS" signature="fristlogin()[pri:0, instance:com.jocata.core.existingfuctions.AdvancedAddBenchMark2@7085bdee]" name="fristlogin" is-config="true" duration-ms="25054" started-at="2017-12-02T17:16:37Z" finished-at="2017-12-02T17:17:02Z">
+          <reporter-output>
+            <line>
+              <![CDATA[waiting for page to load...]]>
+            </line>
+            <line>
+              <![CDATA[Page is loaded]]>
+            </line>
+            <line>
+              <![CDATA[waiting for page to load...]]>
+            </line>
+            <line>
+              <![CDATA[Page is loaded]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- fristlogin -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jocata.core.existingfuctions.AdvancedAddBenchMark2@7085bdee]" name="setUp" is-config="true" duration-ms="1" started-at="2017-12-02T17:17:02Z" finished-at="2017-12-02T17:17:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="init()[pri:4, instance:com.jocata.core.existingfuctions.AdvancedAddBenchMark2@7085bdee]" name="init" duration-ms="111258" started-at="2017-12-02T17:17:02Z" finished-at="2017-12-02T17:18:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult, org.testng.ITestContext)[pri:0, instance:com.jocata.core.existingfuctions.AdvancedAddBenchMark2@7085bdee]" name="getResult" is-config="true" duration-ms="360" started-at="2017-12-02T17:18:54Z" finished-at="2017-12-02T17:18:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=init status=SUCCESS method=AdvancedAddBenchMark2.init()[pri:4, instance:com.jocata.core.existingfuctions.AdvancedAddBenchMark2@7085bdee] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@6d1ef78d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:com.jocata.core.existingfuctions.AdvancedAddBenchMark2@7085bdee]" name="endReport" is-config="true" duration-ms="0" started-at="2017-12-02T17:18:54Z" finished-at="2017-12-02T17:18:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endReport -->
+      </class> <!-- com.jocata.core.existingfuctions.AdvancedAddBenchMark2 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

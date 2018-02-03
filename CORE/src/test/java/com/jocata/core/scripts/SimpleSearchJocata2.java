@@ -1,0 +1,991 @@
+package com.jocata.core.scripts;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.testng.annotations.Test;
+
+import com.google.common.base.Function;
+import com.jocata.core.basescripts.ExtentTestManager;
+import com.jocata.core.basescripts.GetScreenshort;
+import com.jocata.core.basescripts.mainbaseLatest;
+import com.relevantcodes.extentreports.LogStatus;
+
+public class SimpleSearchJocata2 extends mainbaseLatest {
+
+	
+
+	// .............................................simplesearch.....................................................................//
+
+	@Test(priority = 7)
+	public void loginsimple() {
+
+		ExtentTestManager.startTest("  TaskBoard :  Search ");
+
+		clickDashboardsimple();
+	}
+
+	public void clickDashboardsimple() {
+
+	
+
+			fluentWait(By.xpath("//span[text()='Case Files']")).click();
+
+			fluentWait(By.xpath("//ul[@id='trans-nav']//a[text()='Task Board']")).click();
+
+			sleep(8);
+
+			// ..................................................clicking the
+			// activaity period..........................................//
+
+			ExtentTestManager.getTest().log(LogStatus.INFO, "Screenshortbelow :" + ExtentTestManager.getTest()
+					.addScreenCapture(GetScreenshort.capture(driver, "ScreenshortForExtentReport")));
+
+			WebElement elementToClick = driver.findElement(By.xpath("//input[@id='activityPeriod']"));
+			// Scroll the browser to the element's Y position
+			((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementToClick.getLocation().y + ")");
+			// Click the element
+
+			elementToClick.click();
+
+			fluentWait(By.xpath("//li[text()='Custom Range']")).click();
+
+			sleep(8);
+
+			// select the data
+
+			driver.findElement(By.xpath(".//*[@id='ext-gen1018']/div[5]/div[2]/table/thead/tr[1]/th[2]/select[2]"))
+					.click();
+			sleep(8);
+
+			WebElement element = driver
+					.findElement(By.xpath(".//*[@id='ext-gen1018']/div[5]/div[2]/table/thead/tr[1]/th[2]/select[2]"));
+			Select select = new Select(element);
+			select.selectByIndex(44);
+			sleep(8);
+
+			// driver.findElement(By.xpath("//td[text()='11']")).click();
+
+			fluentWait(By.xpath("//button[text()='Submit']")).click();
+			sleep(8);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " ACTIVITY PERIOD  ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocata = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement ele : jocata) {
+
+				String text = ele.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, text);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+			// .............................................................................................................................//
+			// ........................clicking the Last Updated
+			// Period..................................................................................//
+
+			sleep(8);
+
+			WebElement elementToLast = driver.findElement(By.xpath("//input[@id='updatedPeriodRange']"));
+			// Scroll the browser to the element's Y position
+
+			((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementToLast.getLocation().y + ")");
+			// Click the element
+			elementToLast.click();
+
+			fluentWait(By.xpath("//div[@class='ranges']//following::ul/li[3]")).click();
+
+			sleep(8);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " LAST UPDATED PERIOD  ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatabutton = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecond : jocatabutton) {
+
+				String textsecond = elesecond.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecond);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			// sleep(8);
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+			sleep(8);
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// .....................................CASE
+			// ID................................................................................//
+
+			fluentWait(By.xpath("//input[@id='caseId']")).sendKeys("2042180");
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " CASE ID ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacustomer = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondcustom : jocatacustomer) {
+
+				String textsecondcustom = elesecondcustom.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcustom);
+
+			}
+
+			// String textcaseid=driver.findElement(By.xpath("//div[text()='No
+			// Matching Records']")).getText();
+
+			// ExtentTestManager.getTest().log(LogStatus.INFO, textcaseid);
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			sleep(8);
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+			
+			
+			
+//..................................Rules Count.................................................................................//
+			
+	
+			fluentWait(By.xpath(".//*[@id='fromRuleCount']")).sendKeys("0");
+			
+			fluentWait(By.xpath(".//*[@id='fromRuleCount']")).sendKeys("1");
+			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Rules Count ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacustomerrule = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondcustomr : jocatacustomerrule) {
+
+				String textsecondcustomrr = elesecondcustomr.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcustomrr);
+
+			}
+
+			// String textcaseid=driver.findElement(By.xpath("//div[text()='No
+			// Matching Records']")).getText();
+
+			// ExtentTestManager.getTest().log(LogStatus.INFO, textcaseid);
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			sleep(8);
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+			
+			
+			
+			fluentWait(By.xpath("//img[@id='searchBranchName']")).click();
+
+			fluentWait(By.xpath("//div[@id='branchgrid-body']//td/div")).click();
+
+			sleep(8);
+
+			WebElement elementTobranuch = driver.findElement(By.xpath(
+					"//a[@class='x-btn x-unselectable x-btn-toolbar x-box-item x-toolbar-item x-btn-default-toolbar-small x-noicon x-btn-noicon x-btn-default-toolbar-small-noicon']/span"));
+			// Scroll the browser to the element's Y position
+
+			((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementTobranuch.getLocation().y + ")");
+			// Click the element
+			elementTobranuch.click();
+
+			// driver.findElement(By.xpath("//span[@id='button-1112-btnIconEl']")).click();
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " BRANCH ");
+
+			sleep(8);
+			try {
+
+				fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+				sleep(8);
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+
+				String CustomerNameBranuch = driver.findElement(By.xpath("//div[text()='No Matching Records']"))
+						.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, CustomerNameBranuch);
+			}
+
+			sleep(5);
+
+			List<WebElement> jocatacustomerbranch = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondbranch : jocatacustomerbranch) {
+
+				String textsecondbranch = elesecondbranch.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondbranch);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			
+			
+			
+		//....................................Rule Name.........................................................................//	
+			
+			
+			
+			fluentWait(By.xpath(".//*[@id='ruleNameCombo-triggerWrap']")).click();
+			
+			fluentWait(By.cssSelector(".x-boundlist:not([style*='display: none']) div span ")).click();
+			
+			
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatarulename = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondrule : jocatarulename) {
+
+				String textsecondcrule = elesecondrule.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcrule);
+
+			}
+
+			// String textcaseid=driver.findElement(By.xpath("//div[text()='No
+			// Matching Records']")).getText();
+
+			// ExtentTestManager.getTest().log(LogStatus.INFO, textcaseid);
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			sleep(8);
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+			
+			
+			
+			//..................................................Domain.........................................................//
+			
+			
+			
+			fluentWait(By.xpath("//img[@id='searchDomainName']")).click();
+			sleep(8);
+			fluentWait(By.xpath("//div[@id='mydomaingrid']//div//span")).click();
+			sleep(8);
+			
+			   WebElement elementDoim = driver.findElement(By.xpath("//a[6]/span/span/span[2]"));
+				((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementDoim.getLocation().x + ")");
+				// Click the element
+
+				elementDoim.click();
+			
+			
+			//fluentWait(By.xpath("//span[text()='Update']")).click();
+			
+			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Domain ");
+
+			sleep(8);
+			try {
+
+				fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+				sleep(8);
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+
+				String CustomerNameBranuch = driver.findElement(By.xpath("//div[text()='No Matching Records']"))
+						.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, CustomerNameBranuch);
+			}
+
+			sleep(5);
+
+			List<WebElement> jocatacustomerDomain = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement eleseconDomain : jocatacustomerDomain) {
+
+				String textsecondjocatacustomerDomain = eleseconDomain.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondjocatacustomerDomain);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+			sleep(5);
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			sleep(5);
+			
+			//...............................................Events Count......................................................//
+			
+			fluentWait(By.xpath(".//*[@id='fromEventCount']")).sendKeys("1");
+			
+			fluentWait(By.xpath(".//*[@id='toEventCount']")).sendKeys("2");
+			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Events Count ");
+
+			sleep(8);
+			try {
+
+				fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+				sleep(8);
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+
+			/*	String Count = driver.findElement(By.xpath("//div[text()='No Matching Records']"))
+						.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, Events);*/
+			}
+
+			sleep(5);
+
+			List<WebElement> EventsCount = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement eleseconEventsCount : EventsCount) {
+
+				String textsecoeleseconEventsCount = eleseconEventsCount.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecoeleseconEventsCount);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+			
+			
+			
+			//.............................................Zone.............................................................//
+			
+			fluentWait(By.xpath("//img[@id='searchZoneName']")).click();
+			
+			fluentWait(By.xpath("//div[@id='myzonegrid']/div//span")).click();
+			
+			
+			sleep(8);
+			
+			   WebElement elementZone = driver.findElement(By.xpath("//a[6]/span/span/span[2]"));
+				((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementZone.getLocation().x + ")");
+				// Click the element
+
+				elementZone.click();
+			
+			
+			//fluentWait(By.xpath("//span[text()='Update']")).click();
+			
+			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Zone ");
+
+			sleep(8);
+			try {
+
+				fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+				sleep(8);
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+
+				String CustomerNameBranuch = driver.findElement(By.xpath("//div[text()='No Matching Records']"))
+						.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, CustomerNameBranuch);
+			}
+
+			sleep(5);
+
+			List<WebElement> jocatacusZone = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement eleseconjocatacusZone : jocatacusZone) {
+
+				String textsecondeleseconjocatacusZone = eleseconjocatacusZone.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondeleseconjocatacusZone);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+			sleep(5);
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			sleep(5);
+			
+			
+			
+			//...............................................................Cluster.........................................//
+			
+			
+			
+			fluentWait(By.xpath("//img[@id='searchClusterName']")).click();
+			
+			fluentWait(By.xpath("//div[@id='myclustergrid']//div//span")).click();
+			
+			
+			sleep(8);
+			
+			   WebElement elementCluster = driver.findElement(By.xpath("//a[6]/span/span/span[2]"));
+				((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementCluster.getLocation().x + ")");
+				// Click the element
+
+				elementCluster.click();
+			
+			
+			//fluentWait(By.xpath("//span[text()='Update']")).click();
+			
+			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Cluster ");
+
+			sleep(8);
+			try {
+
+				fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+				sleep(8);
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+
+				String CustomerNameBranuch = driver.findElement(By.xpath("//div[text()='No Matching Records']"))
+						.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, CustomerNameBranuch);
+			}
+
+			sleep(5);
+
+			List<WebElement> jocaelementCluster = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesejocaelementCluster : jocaelementCluster) {
+
+				String textseelesejocaelementCluster = elesejocaelementCluster.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textseelesejocaelementCluster);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+			sleep(5);
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			sleep(5);
+			
+			
+		
+			//...............................................................Circle.........................................//
+
+			
+			fluentWait(By.xpath("//img[@id='searchCircleName']")).click();
+			
+			
+      fluentWait(By.xpath("//div[@id='mycirclegrid']//div//span")).click();
+			
+			
+			sleep(8);
+			
+			   WebElement elementCircle = driver.findElement(By.xpath("//a[6]/span/span/span[2]"));
+				((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementCircle.getLocation().x + ")");
+				// Click the element
+
+				elementCircle.click();
+			
+			
+			//fluentWait(By.xpath("//span[text()='Update']")).click();
+			
+			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Circle ");
+
+			sleep(8);
+			try {
+
+				fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+				sleep(8);
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+
+				String CustomerNameBranuch = driver.findElement(By.xpath("//div[text()='No Matching Records']"))
+						.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, CustomerNameBranuch);
+			}
+
+			sleep(5);
+
+			List<WebElement> jocaelementCircle = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesejocaelementCircler : jocaelementCircle) {
+
+				String textelesejocaelementCircler = elesejocaelementCircler.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textelesejocaelementCircler);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+			sleep(5);
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			sleep(5);
+			
+			
+			
+			
+			
+			/*
+			
+			
+
+			// .............................clicking the
+			// CustomerType.................................................................//
+
+			fluentWait(By.xpath("//input[@id='customerTypeCombo-inputEl']")).click();
+
+			sleep(8);
+
+			List<WebElement> elements = driver.findElements(By.xpath("//ul/li/div"));
+
+			for (WebElement all : elements) {
+
+				//System.out.println(all.getAttribute("data-qtip").toString());
+
+				if (all.getAttribute("data-qtip").equals("Associations and Body of Individuals")) {
+
+					if (!all.isSelected()) {
+
+						all.click();
+					}
+
+				}
+
+				if (all.getAttribute("data-qtip").equals("Business Entity")) {
+
+					if (!all.isSelected()) {
+
+						all.click();
+					}
+
+				}
+
+				if (all.getAttribute("data-qtip").equals("Financial Institution")) {
+
+					if (!all.isSelected()) {
+
+						all.click();
+					}
+
+				}
+
+				if (all.getAttribute("data-qtip").equals("Individual")) {
+
+					if (!all.isSelected()) {
+
+						all.click();
+					}
+
+				}
+
+			}
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacustomercuu = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondcustomzz : jocatacustomercuu) {
+
+				String textsecondcustomav = elesecondcustomzz.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcustomav);
+
+			}
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// driver.findElement(By.xpath("//div[@class='x-boundlist
+			// x-boundlist-floating x-layer x-boundlist-default
+			// x-border-box']//span")).click();
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " CUSTOMER TYPE ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacustomertype = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondcustomss : jocatacustomertype) {
+
+				String textsecondcustomdd = elesecondcustomss.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcustomdd);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// .........................................clicking the Assign to
+			// me...........................................................//
+
+			fluentWait(By.xpath("//img[@id='searchAsignUsersId']")).click();
+
+			sleep(3);
+
+			fluentWait(By.xpath("//tbody[contains(@id,'gridview-')]/tr[8]/td/div")).click();
+
+			// driver.findElement(By.xpath("//input[@id='userIdText-inputEl']")).sendKeys("l1_user");
+
+			sleep(8);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " ASSIGNED TO ");
+
+			WebElement elementToAssign = driver
+					.findElement(By.xpath("//div[starts-with(@id,'pagingtoolbar-')]//a[6]//span"));
+
+			elementToAssign.click();
+
+			sleep(8);
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacustomerassign = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondcustomassign : jocatacustomerassign) {
+
+				String textsecondcustomassign = elesecondcustomassign.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcustomassign);
+
+			}
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// .....................................CustomerName.....................................................................//
+
+			fluentWait(By.xpath("//input[@id='searchCusName']")).sendKeys("ankita aaa");
+
+			sleep(3);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Customer Name ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacustomernamezz = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondcustomzz : jocatacustomernamezz) {
+
+				String textsecondcustomvvvxx = elesecondcustomzz.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcustomvvvxx);
+
+			}
+
+			// String textcaseid=driver.findElement(By.xpath("//div[text()='No
+			// Matching Records']")).getText();
+
+			// ExtentTestManager.getTest().log(LogStatus.INFO, textcaseid);
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// ..........................................Customer
+			// ID........................................................................//
+
+			fluentWait(By.xpath("//input[@id='searchCusId']")).sendKeys("JOCATA937");
+
+			sleep(8);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " CUSTOMER ID ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacustomerwwwww = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondcustomsssq : jocatacustomerwwwww) {
+
+				String textsecondcustomaaaz = elesecondcustomsssq.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondcustomaaaz);
+
+			}
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+			sleep(8);
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// ................................................Branuch.................................................................//
+
+			fluentWait(By.xpath("//img[@id='searchBranchName']")).click();
+
+			fluentWait(By.xpath("//div[@id='branchgrid-body']//td/div")).click();
+
+			sleep(8);
+
+			WebElement elementTobranuch = driver.findElement(By.xpath(
+					"//a[@class='x-btn x-unselectable x-btn-toolbar x-box-item x-toolbar-item x-btn-default-toolbar-small x-noicon x-btn-noicon x-btn-default-toolbar-small-noicon']/span"));
+			// Scroll the browser to the element's Y position
+
+			((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + elementTobranuch.getLocation().y + ")");
+			// Click the element
+			elementTobranuch.click();
+
+			// driver.findElement(By.xpath("//span[@id='button-1112-btnIconEl']")).click();
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " BRANCH ");
+
+			sleep(8);
+			try {
+
+				fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+				sleep(8);
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+
+				String CustomerNameBranuch = driver.findElement(By.xpath("//div[text()='No Matching Records']"))
+						.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, CustomerNameBranuch);
+			}
+
+			sleep(5);
+
+			List<WebElement> jocatacustomerbranch = driver
+					.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondbranch : jocatacustomerbranch) {
+
+				String textsecondbranch = elesecondbranch.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondbranch);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// ...............................................................Score.......................................................//
+
+			sleep(8);
+
+			fluentWait(By.xpath("//input[@id='fromCaseScore']")).sendKeys("28");
+
+			sleep(8);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " SCORE ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocataScore = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondscore : jocataScore) {
+
+				String textsecondscore = elesecondscore.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsecondscore);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// .......................................clicking the case
+			// type.........................................................//
+
+			sleep(8);
+
+			fluentWait(By.xpath("//input[@id='casesTypesCombo-inputEl']")).click();
+
+			sleep(8);
+            	 
+			fluentWait(By.xpath("//li[text()='My Current Cases']")).click();
+
+             }catch(Exception e){
+            	 System.out.println(e.getMessage());
+             }
+			//sleep(8);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " CASE TYPE ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> jocatacasetype = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondscoretype : jocatacasetype) {
+
+				String textcasetype = elesecondscoretype.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textcasetype);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+
+			// .................................Workflow
+			// Sub-Status.................................................................//
+			sleep(3);
+
+			fluentWait(By.xpath("//input[@id='workflowSubStatusCombo-inputEl']")).click();
+
+			sleep(8);
+
+			WebElement elementWorkflow = driver.findElement(By.xpath(
+					"//div[@class='x-boundlist x-boundlist-floating x-layer x-boundlist-default x-border-box']//span"));
+			JavascriptExecutor Workflow = (JavascriptExecutor) driver;
+			Workflow.executeScript("arguments[0].click();", elementWorkflow);
+
+			sleep(3);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " WORKFLOW SUBSTATUS ");
+
+			fluentWait(By.xpath("//div[@id='buttonSearch']/a")).click();
+
+			sleep(8);
+
+			List<WebElement> Workflowsubstates = driver.findElements(By.xpath("//tbody[contains(@id,'gridview-')]/tr"));
+
+			for (WebElement elesecondsubstates : Workflowsubstates) {
+
+				String textsubstaes = elesecondsubstates.getText();
+
+				ExtentTestManager.getTest().log(LogStatus.INFO, textsubstaes);
+
+			}
+
+			ExtentTestManager.getTest().log(LogStatus.INFO,
+					"***************************************************************************************");
+
+			fluentWait(By.xpath("//img[@class='x-tool-img x-tool-expand-bottom']")).click();
+
+			fluentWait(By.xpath("//div[@class='resetButton']")).click();
+			
+			*/
+			ExtentTestManager.getTest().log(LogStatus.INFO,	" search with all filters performed successfully"); 
+
+
+		/*} catch (Exception e) {
+
+			sleep(19);
+
+			ExtentTestManager.getTest().log(LogStatus.INFO, "Screenshortbelow :" + ExtentTestManager.getTest()
+					.addScreenCapture(GetScreenshort.capture(driver, "ScreenshortForExtentReport")));
+
+			driver.navigate().refresh();
+
+			System.out.println("referesh................");
+
+			ExtentTestManager.getTest().log(LogStatus.FAIL, "Simple Search Fail");
+
+		}*/
+
+	}
+
+}
